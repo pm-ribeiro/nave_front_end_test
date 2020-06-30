@@ -38,6 +38,5 @@
 
 .fill-height {
   height: calc(100vh - 124px);
-  border: 1px solid red;
 }
 </style>

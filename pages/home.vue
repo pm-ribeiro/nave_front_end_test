@@ -1,12 +1,6 @@
 <template>
-  <v-col cols="12" class="pa-0 px-8" style="border: 1px solid blue;">
-    <v-row
-      no-gutters
-      align="center"
-      justify="space-between"
-      class="mb-6 mt-10"
-      style="border: 1px solid red;"
-    >
+  <v-col cols="12" class="pa-0 px-8">
+    <v-row no-gutters align="center" justify="space-between" class="mb-6 mt-10">
       <h1>Navers</h1>
       <v-btn color="primary" depressed tile width="176" dark to="/add_naver">
         Adicionar Naver
@@ -25,6 +19,7 @@
         xl="3"
         lg="3"
         class="my-3"
+        style="border: 1px solid blue;"
       >
         <v-sheet outlined tile width="281" height="420" class="py-3">
           <DefaultDialog :dialog-width="'1006'">
@@ -69,7 +64,13 @@
       </v-col>
     </v-row>
 
-    <v-snackbar v-model="deltedSnackbar" multi-line outlined color="success">
+    <v-snackbar
+      id="delete-snackbar"
+      v-model="deltedSnackbar"
+      multi-line
+      outlined
+      color="success"
+    >
       Naver excluído com sucesso!
 
       <template v-slot:action="{ attrs }">
@@ -91,6 +92,7 @@ export default {
   data() {
     return {
       deltedSnackbar: false,
+
       dialog: false,
       navers: [
         {

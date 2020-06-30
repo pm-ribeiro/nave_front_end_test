@@ -46,3 +46,9 @@ export default {
   },
 }
 </script>
+
+<style lang="scss">
+.v-snack:not(.v-snack--has-background) .v-snack__wrapper {
+  background: white;
+}
+</style>
