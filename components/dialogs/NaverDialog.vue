@@ -1,27 +1,26 @@
 <template>
   <v-card tile height="560" class="pa-0">
-    <v-row
-      no-gutters
-      align="start"
-      justify="space-between"
-      style="height: 100%; border: 2px solid green;"
-    >
-      <v-col
-        cols="6"
-        class="pa-0"
-        style="height: 100%; border: 2px solid orange;"
-      >
-        <img
+    <v-row no-gutters align="start" justify="space-between">
+      <v-col cols="12" xl="6" lg="6" class="pa-0">
+        <v-img
+          slot="activator-button"
+          src="https://picsum.photos/510/300?random"
+          alt="Profile picture"
+          height="560"
+        ></v-img>
+        <!-- <img
           slot="activator-button"
           src="@/assets/images/profile_pic.png"
           alt="Profile Picture"
           height="550"
-        />
+        /> -->
       </v-col>
       <v-col
-        cols="6"
+        cols="12"
+        xl="6"
+        lg="6"
         class="pa-3"
-        style="height: 100%; border: 2px solid orange;"
+        style="background-color: white;"
       >
         <v-row no-gutters align="center" justify="end">
           <v-btn icon small @click="$dialog.close()">

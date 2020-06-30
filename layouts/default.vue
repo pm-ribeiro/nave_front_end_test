@@ -49,6 +49,6 @@ export default {
 
 <style lang="scss">
 .v-snack:not(.v-snack--has-background) .v-snack__wrapper {
-  background: white;
+  background: white !important;
 }
 </style>

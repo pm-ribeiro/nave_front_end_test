@@ -1,34 +1,34 @@
 <template>
   <v-col cols="12" class="pa-0 px-8">
-    <v-row no-gutters align="center" justify="space-between" class="mb-6 mt-10">
+    <v-row
+      no-gutters
+      align="center"
+      justify="space-between"
+      class="px-4 mb-6 mt-10"
+    >
       <h1>Navers</h1>
       <v-btn color="primary" depressed tile width="176" dark to="/add_naver">
         Adicionar Naver
       </v-btn>
     </v-row>
-    <v-row
-      no-gutters
-      align="center"
-      justify="start"
-      style="border: 1px solid red;"
-    >
+    <v-row no-gutters align="center" justify="start">
       <v-col
         v-for="(naver, index) in navers"
         :key="index"
         cols="12"
         xl="3"
         lg="3"
-        class="my-3"
-        style="border: 1px solid blue;"
+        class="my-3 px-4"
       >
-        <v-sheet outlined tile width="281" height="420" class="py-3">
+        <v-sheet tile height="420" class="py-3">
           <DefaultDialog :dialog-width="'1006'">
-            <img
+            <v-img
+              id="activator-button"
               slot="activator-button"
-              src="@/assets/images/profile_pic.png"
-              alt="logo"
+              src="https://picsum.photos/510/300?random"
+              alt="Profile picture"
               height="285"
-            />
+            ></v-img>
             <NaverDialog
               slot="content"
               :naver-data="naver"
@@ -64,13 +64,7 @@
       </v-col>
     </v-row>
 
-    <v-snackbar
-      id="delete-snackbar"
-      v-model="deltedSnackbar"
-      multi-line
-      outlined
-      color="success"
-    >
+    <v-snackbar v-model="deltedSnackbar" multi-line outlined color="success">
       Naver excluído com sucesso!
 
       <template v-slot:action="{ attrs }">
@@ -125,3 +119,9 @@ export default {
   methods: {},
 }
 </script>
+
+<style lang="scss">
+#activator-button {
+  cursor: pointer;
+}
+</style>
