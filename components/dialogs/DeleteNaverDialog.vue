@@ -35,7 +35,8 @@ export default {
   },
   methods: {
     confirmDelete() {
-      console.log('confirmado')
+      this.$dialog.close()
+      this.$emit('naverDeleted')
     },
   },
 }

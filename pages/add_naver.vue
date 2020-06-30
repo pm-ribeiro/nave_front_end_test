@@ -54,6 +54,21 @@
         </v-btn>
       </v-row>
     </v-col>
+
+    <v-snackbar v-model="saveNaverSnackbar" multi-line outlined color="success">
+      Naver criado com sucesso!
+
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          color="success"
+          text
+          v-bind="attrs"
+          @click="saveNaverSnackbar = false"
+        >
+          Fechar
+        </v-btn>
+      </template>
+    </v-snackbar>
   </v-row>
 </template>
 
@@ -61,6 +76,7 @@
 export default {
   data() {
     return {
+      saveNaverSnackbar: false,
       naver: {
         name: '',
         age: '',
@@ -74,6 +90,7 @@ export default {
   methods: {
     saveNaver() {
       console.log(this.naver)
+      this.saveNaverSnackbar = true
     },
   },
 }

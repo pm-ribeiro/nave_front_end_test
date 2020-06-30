@@ -34,7 +34,11 @@
               alt="logo"
               height="285"
             />
-            <NaverDialog slot="content" :naver-data="naver"></NaverDialog>
+            <NaverDialog
+              slot="content"
+              :naver-data="naver"
+              @naverDeleted="deltedSnackbar = true"
+            ></NaverDialog>
           </DefaultDialog>
           <h4 class="font-weight-bold mt-2">Blue alien</h4>
 
@@ -54,15 +58,31 @@
               <DeleteNaverDialog
                 slot="content"
                 :naver-data="naver"
+                @naverDeleted="deltedSnackbar = true"
               ></DeleteNaverDialog>
             </DefaultDialog>
-            <v-btn icon x-small color="primary" @click="editNaver()">
+            <v-btn icon x-small color="primary" to="/edit">
               <v-icon>mdi-pencil</v-icon>
             </v-btn>
           </v-row>
         </v-sheet>
       </v-col>
     </v-row>
+
+    <v-snackbar v-model="deltedSnackbar" multi-line outlined color="success">
+      Naver excluído com sucesso!
+
+      <template v-slot:action="{ attrs }">
+        <v-btn
+          color="success"
+          text
+          v-bind="attrs"
+          @click="deltedSnackbar = false"
+        >
+          Fechar
+        </v-btn>
+      </template>
+    </v-snackbar>
   </v-col>
 </template>
 
@@ -70,6 +90,7 @@
 export default {
   data() {
     return {
+      deltedSnackbar: false,
       dialog: false,
       navers: [
         {
@@ -99,16 +120,6 @@ export default {
       ],
     }
   },
-  methods: {
-    addNaver() {
-      console.log('OI')
-    },
-    deleteNaver() {
-      console.log('OI')
-    },
-    editNaver() {
-      console.log('OI')
-    },
-  },
+  methods: {},
 }
 </script>

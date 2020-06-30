@@ -50,10 +50,24 @@
 
         <!-- card actions -->
         <v-row no-gutters align="center" justify="start" class="mt-12">
-          <v-btn icon small color="primary" class="mr-2" @click="deleteNaver()">
-            <v-icon>mdi-delete</v-icon>
-          </v-btn>
-          <v-btn icon small color="primary" @click="editNaver()">
+          <DefaultDialog :dialog-width="'500'">
+            <v-btn
+              slot="activator-button"
+              icon
+              small
+              color="primary"
+              class="mr-2"
+            >
+              <v-icon>mdi-delete</v-icon>
+            </v-btn>
+
+            <DeleteNaverDialog
+              slot="content"
+              :naver-data="naver"
+              @naverDeleted="confirmDeletion()"
+            ></DeleteNaverDialog>
+          </DefaultDialog>
+          <v-btn icon small color="primary" to="/edit">
             <v-icon>mdi-pencil</v-icon>
           </v-btn>
         </v-row>
@@ -70,7 +84,11 @@ export default {
       default: () => {},
     },
   },
-  methods: {},
+  methods: {
+    confirmDeletion() {
+      this.$emit('naverDeleted')
+    },
+  },
 }
 </script>
 
