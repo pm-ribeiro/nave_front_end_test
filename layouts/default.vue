@@ -8,7 +8,7 @@
       <v-btn text color="primary" to="/">sair</v-btn>
     </v-app-bar>
     <v-main>
-      <v-container class="fill-height" fluid>
+      <v-container fluid>
         <nuxt />
       </v-container>
     </v-main>

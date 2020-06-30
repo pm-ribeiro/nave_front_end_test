@@ -1,6 +1,6 @@
 <template>
   <!-- login page -->
-  <v-row no-gutters align="center" justify="center">
+  <v-row no-gutters align="center" justify="center" class="fill-height">
     <v-sheet outlined tile width="448" height="408" class="px-8 py-10">
       <v-row no-gutters align="center" justify="center">
         <img
@@ -34,5 +34,10 @@
 <style lang="scss" scoped>
 .login__fields {
   width: 384px;
+}
+
+.fill-height {
+  height: calc(100vh - 124px);
+  border: 1px solid red;
 }
 </style>

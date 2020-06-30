@@ -4,18 +4,11 @@
       no-gutters
       align="center"
       justify="space-between"
-      class="mb-6"
+      class="mb-6 mt-10"
       style="border: 1px solid red;"
     >
       <h1>Navers</h1>
-      <v-btn
-        color="primary"
-        depressed
-        tile
-        width="176"
-        dark
-        @click="addNaver()"
-      >
+      <v-btn color="primary" depressed tile width="176" dark to="/add_naver">
         Adicionar Naver
       </v-btn>
     </v-row>
@@ -47,15 +40,22 @@
 
           <span>Front-end developer</span> <br />
           <v-row no-gutters align="center" justify="start" class="mt-2">
-            <v-btn
-              icon
-              x-small
-              color="primary"
-              class="mr-2"
-              @click="deleteNaver()"
-            >
-              <v-icon>mdi-delete</v-icon>
-            </v-btn>
+            <DefaultDialog :dialog-width="'500'">
+              <v-btn
+                slot="activator-button"
+                icon
+                x-small
+                color="primary"
+                class="mr-2"
+              >
+                <v-icon>mdi-delete</v-icon>
+              </v-btn>
+
+              <DeleteNaverDialog
+                slot="content"
+                :naver-data="naver"
+              ></DeleteNaverDialog>
+            </DefaultDialog>
             <v-btn icon x-small color="primary" @click="editNaver()">
               <v-icon>mdi-pencil</v-icon>
             </v-btn>
@@ -79,7 +79,6 @@ export default {
         {
           image: '@/assets/images/profile_pic.png',
           name: 'fulano 2',
-          text: 'lalalalala',
         },
         {
           image: '@/assets/images/profile_pic.png',
