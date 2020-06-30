@@ -51,4 +51,8 @@ export default {
 .v-snack:not(.v-snack--has-background) .v-snack__wrapper {
   background: white !important;
 }
+
+.fill-height {
+  height: calc(100vh - 124px);
+}
 </style>

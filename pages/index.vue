@@ -35,8 +35,4 @@
 .login__fields {
   width: 384px;
 }
-
-.fill-height {
-  height: calc(100vh - 124px);
-}
 </style>

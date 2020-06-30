@@ -8,18 +8,12 @@
           alt="Profile picture"
           height="560"
         ></v-img>
-        <!-- <img
-          slot="activator-button"
-          src="@/assets/images/profile_pic.png"
-          alt="Profile Picture"
-          height="550"
-        /> -->
       </v-col>
       <v-col
         cols="12"
         xl="6"
         lg="6"
-        class="pa-3"
+        class="pa-3 pl-6"
         style="background-color: white;"
       >
         <v-row no-gutters align="center" justify="end">
