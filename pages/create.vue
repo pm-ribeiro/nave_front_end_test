@@ -77,7 +77,7 @@
                       color="primary"
                       class="mt-n1"
                       v-on="on"
-                      @click="defaultAvatar()"
+                      @click="naver.avatarUrl = 'default_avatar'"
                     >
                       <v-icon>mdi-image</v-icon>
                     </v-btn>
@@ -159,9 +159,6 @@ export default {
     },
   },
   methods: {
-    defaultAvatar() {
-      this.naver.avatarUrl = 'default_avatar'
-    },
     validate() {
       this.valid = this.$refs.form.validate()
       if (this.valid) {

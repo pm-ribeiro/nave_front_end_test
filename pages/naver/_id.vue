@@ -66,8 +66,26 @@
               :rules="[
                 $validations.required(),
                 $validations.minFieldLength(naver.name, 5),
+                $validations.validURL(naver.avatarUrl),
               ]"
-            ></v-text-field>
+            >
+              <template v-slot:append>
+                <v-tooltip top>
+                  <template v-slot:activator="{ on }">
+                    <v-btn
+                      icon
+                      color="primary"
+                      class="mt-n1"
+                      v-on="on"
+                      @click="naver.avatarUrl = 'default_avatar'"
+                    >
+                      <v-icon>mdi-image</v-icon>
+                    </v-btn>
+                  </template>
+                  Usar o avatar padrão
+                </v-tooltip>
+              </template>
+            </v-text-field>
           </v-col>
         </v-row>
         <v-row no-gutters align="center" justify="end">

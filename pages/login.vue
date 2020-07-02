@@ -2,7 +2,7 @@
   <v-row no-gutters align="center" justify="center" class="fill-height">
     <v-sheet outlined tile width="448" min-height="408" class="px-8 py-10">
       <v-img
-        :src="$representers.getImage('nave_logo.svg')"
+        :src="$representers.getAssetsImage('nave_logo.svg')"
         alt="Nave"
         class="mb-10 mx-4"
       />

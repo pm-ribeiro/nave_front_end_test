@@ -27,7 +27,7 @@
               slot="activator-button"
               :src="
                 naver.url == 'default_avatar'
-                  ? $representers.getImage('default_avatar.png')
+                  ? $representers.getAssetsImage('default_avatar.png')
                   : naver.url
               "
               alt="Profile picture"
