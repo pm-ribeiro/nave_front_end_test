@@ -6,6 +6,9 @@ const masks = {
 }
 
 export default function ({ store }, inject) {
+  function getImage(path) {
+    return path ? require(`@/assets/images/${path}`) : ''
+  }
   function age(birthdate) {
     const today = new Date()
     const birthDate = new Date(birthdate)
@@ -30,6 +33,7 @@ export default function ({ store }, inject) {
   inject('representers', {
     ddmmyyyy,
     age,
+    getImage,
     masks,
   })
 }

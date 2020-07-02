@@ -1,14 +1,11 @@
 <template>
-  <!-- login page -->
   <v-row no-gutters align="center" justify="center" class="fill-height">
-    <v-sheet outlined tile width="448" height="408" class="px-8 py-10">
-      <v-row no-gutters align="center" justify="center">
-        <img
-          src="@/assets/images/nave_logo.svg"
-          alt="Nave"
-          class="mb-10 mx-auto"
-        />
-      </v-row>
+    <v-sheet outlined tile width="448" min-height="408" class="px-8 py-10">
+      <v-img
+        :src="$representers.getImage('nave_logo.svg')"
+        alt="Nave"
+        class="mb-10 mx-4"
+      />
 
       <v-text-field
         v-model="email"

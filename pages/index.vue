@@ -25,7 +25,11 @@
             <v-img
               id="activator-button"
               slot="activator-button"
-              :src="naver.url == 'default_avatar' ? getImage() : naver.url"
+              :src="
+                naver.url == 'default_avatar'
+                  ? $representers.getImage('default_avatar.png')
+                  : naver.url
+              "
               alt="Profile picture"
               height="285"
             ></v-img>
@@ -103,9 +107,6 @@ export default {
     this.fetchNavers()
   },
   methods: {
-    getImage() {
-      return require('@/assets/images/default_avatar.png')
-    },
     async fetchNavers() {
       try {
         const navers = await this.$axios.get('/navers')

@@ -4,7 +4,11 @@
       <v-col cols="12" xl="6" lg="6" class="pa-0">
         <v-img
           slot="activator-button"
-          :src="naver.url == 'default_avatar' ? getImage() : naver.url"
+          :src="
+            naver.url == 'default_avatar'
+              ? $representers.getImage('default_avatar.png')
+              : naver.url
+          "
           alt="Profile picture"
           height="560"
         ></v-img>
@@ -79,9 +83,6 @@ export default {
     },
   },
   methods: {
-    getImage() {
-      return require('@/assets/images/default_avatar.png')
-    },
     confirmDeletion() {
       this.$emit('naverDeleted')
     },
