@@ -14,16 +14,20 @@
         v-model="email"
         class="login__fields"
         label="E-mail"
-        placeholder="E-mail"
         outlined
+        type="email"
+        :rules="[$validations.required('e-mail'), $validations.email()]"
       ></v-text-field>
 
       <v-text-field
         v-model="password"
-        class="login__fields"
+        class="login__fields my-3"
         label="Senha"
-        placeholder="Senha"
         outlined
+        :rules="[$validations.required('senha')]"
+        :type="showPassword ? 'text' : 'password'"
+        :append-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
+        @click:append="showPassword = !showPassword"
       ></v-text-field>
 
       <v-btn color="primary" depressed tile width="384" dark @click="login()">
@@ -38,8 +42,9 @@ export default {
   auth: 'guest',
   data() {
     return {
-      email: 'testing-user@nave.rs',
-      password: 'nave1234',
+      email: '',
+      password: '',
+      showPassword: false,
     }
   },
   methods: {
