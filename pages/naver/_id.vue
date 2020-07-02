@@ -91,13 +91,8 @@
         Naver atualizado com sucesso!
 
         <template v-slot:action="{ attrs }">
-          <v-btn
-            color="white"
-            text
-            v-bind="attrs"
-            @click="saveNaverSnackbar = false"
-          >
-            Fechar
+          <v-btn color="white" text v-bind="attrs" to="/">
+            Home
           </v-btn>
         </template>
       </v-snackbar>
