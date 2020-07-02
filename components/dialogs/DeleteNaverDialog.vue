@@ -1,9 +1,9 @@
 <template>
   <v-card tile class="pa-8">
-    <v-card-title class="pa-0">
+    <v-card-title class="pa-0 headline d-flex justify-center">
       Excluir Naver
     </v-card-title>
-    <v-card-text class="pa-0 my-10">
+    <v-card-text class="pa-0 mt-10 mb-12 px-6">
       Tem certeza que deseja excluir este Naver?
     </v-card-text>
     <v-card-actions class="pa-0 d-flex align-center justify-center">
@@ -11,8 +11,8 @@
         color="primary"
         tile
         outlined
-        width="176"
-        class="mx-3"
+        width="156"
+        class="mr-4"
         @click="$dialog.close()"
       >
         cancelar
@@ -21,8 +21,8 @@
         color="primary"
         tile
         depressed
-        width="176"
-        class="mx-3"
+        width="156"
+        class="ml-4"
         @click="deteleNaver()"
       >
         excluir
