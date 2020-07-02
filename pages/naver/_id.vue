@@ -1,82 +1,137 @@
 <template>
-  <v-row no-gutters align="start" justify="center">
-    <v-col cols="12" xl="8" lg="8" class="pa-0 px-8 pt-10">
-      <v-row no-gutters align="center" justify="start">
-        <v-btn color="primary" text x-large to="/">
-          <v-icon left large>mdi-chevron-left</v-icon> Editar Naver
-        </v-btn>
-      </v-row>
-      <v-row no-gutters align="center" justify="center" class="my-8">
-        <v-col cols="12" xl="6" lg="6" class="pr-lg-4">
-          <v-text-field
-            v-model="naver.name"
-            label="Nome"
-            placeholder="Nome"
-            outlined
-          ></v-text-field>
-          <v-text-field
-            v-model="naver.birthdate"
-            label="Idade"
-            placeholder="Idade"
-            outlined
-          ></v-text-field>
-          <v-text-field
-            v-model="naver.project"
-            label="Projetos"
-            placeholder="Projetos que participou"
-            outlined
-          ></v-text-field>
-        </v-col>
-        <v-col cols="12" xl="6" lg="6" class="pl-lg-4">
-          <v-text-field
-            v-model="naver.jobRole"
-            label="Cargo"
-            placeholder="Cargo"
-            outlined
-          ></v-text-field>
-          <v-text-field
-            v-model="naver.admissionDate"
-            label="Tempo de empresa"
-            placeholder="Tempo de empresa"
-            outlined
-          ></v-text-field>
-          <v-text-field
-            v-model="naver.avatarUrl"
-            label="Url do avatar"
-            placeholder="Url para a foto do Naver"
-            outlined
-          ></v-text-field>
-        </v-col>
-      </v-row>
-      <v-row no-gutters align="center" justify="end">
-        <v-btn color="primary" tile depressed width="176" @click="editNaver()">
-          Salvar
-        </v-btn>
-      </v-row>
-    </v-col>
+  <v-form ref="form" lazy-validation>
+    <v-row no-gutters align="start" justify="center">
+      <v-col cols="12" xl="8" lg="8" class="pa-0 px-8 pt-10">
+        <v-row no-gutters align="center" justify="start">
+          <v-btn color="primary" text x-large to="/">
+            <v-icon left large>mdi-chevron-left</v-icon> Editar Naver
+          </v-btn>
+        </v-row>
+        <v-row no-gutters align="center" justify="center" class="my-8">
+          <v-col cols="12" xl="6" lg="6" class="pr-lg-4">
+            <v-text-field
+              v-model="naver.name"
+              label="Nome"
+              placeholder="Nome"
+              outlined
+              :rules="[
+                $validations.required(),
+                $validations.minFieldLength(naver.name, 3),
+              ]"
+            ></v-text-field>
+            <v-text-field
+              v-model="naver.birthdate"
+              v-mask="$validations.masks.date"
+              label="Data de nascimento"
+              placeholder="Data de nascimento (DD/MM/AAAA)"
+              hint="DD/MM/AAAA"
+              outlined
+              :rules="[$validations.required(), $validations.date()]"
+              class="my-3"
+            ></v-text-field>
+            <v-text-field
+              v-model="naver.project"
+              label="Projetos"
+              placeholder="Projetos que participou"
+              outlined
+              :rules="[$validations.required()]"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" xl="6" lg="6" class="pl-lg-4">
+            <v-text-field
+              v-model="naver.jobRole"
+              label="Cargo"
+              placeholder="Cargo"
+              outlined
+              :rules="[
+                $validations.required(),
+                $validations.minFieldLength(naver.name, 3),
+              ]"
+            ></v-text-field>
+            <v-text-field
+              v-model="naver.admissionDate"
+              v-mask="$validations.masks.date"
+              hint="DD/MM/AAAA"
+              label="Data de admissão"
+              placeholder="Data de admissão (DD/MM/AAAA)"
+              outlined
+              :rules="[$validations.required(), $validations.date()]"
+              class="my-3"
+            ></v-text-field>
+            <v-text-field
+              v-model="naver.avatarUrl"
+              label="Url do avatar"
+              placeholder="http://..."
+              outlined
+              :rules="[
+                $validations.required(),
+                $validations.minFieldLength(naver.name, 5),
+              ]"
+            ></v-text-field>
+          </v-col>
+        </v-row>
+        <v-row no-gutters align="center" justify="end">
+          <v-btn color="primary" tile outlined @click="resetFields()">
+            Descartar alterações
+          </v-btn>
+          <v-btn
+            color="primary"
+            tile
+            depressed
+            width="176"
+            class="ml-4"
+            @click="validate()"
+          >
+            Salvar
+          </v-btn>
+        </v-row>
+      </v-col>
 
-    <v-snackbar v-model="saveNaverSnackbar" multi-line outlined color="success">
-      Naver atualizado com sucesso!
+      <v-snackbar v-model="saveNaverSnackbar" multi-line color="success">
+        Naver atualizado com sucesso!
 
-      <template v-slot:action="{ attrs }">
-        <v-btn
-          color="success"
-          text
-          v-bind="attrs"
-          @click="saveNaverSnackbar = false"
-        >
-          Fechar
-        </v-btn>
-      </template>
-    </v-snackbar>
-  </v-row>
+        <template v-slot:action="{ attrs }">
+          <v-btn
+            color="white"
+            text
+            v-bind="attrs"
+            @click="saveNaverSnackbar = false"
+          >
+            Fechar
+          </v-btn>
+        </template>
+      </v-snackbar>
+
+      <v-snackbar v-model="failSnackbar" multi-line color="warning">
+        Existem campos incorretos!
+
+        <template v-slot:action="{ attrs }">
+          <v-btn
+            color="white"
+            text
+            v-bind="attrs"
+            @click="failSnackbar = false"
+          >
+            Fechar
+          </v-btn>
+        </template>
+      </v-snackbar>
+    </v-row>
+  </v-form>
 </template>
 
 <script>
+import { mask } from 'vue-the-mask'
+
 export default {
+  directives: {
+    mask,
+  },
   data() {
     return {
+      valid: false,
       saveNaverSnackbar: false,
+      failSnackbar: false,
       naverId: this.$route.params.id,
       naver: {
         name: '',
@@ -92,8 +147,10 @@ export default {
     this.fetchNaver()
   },
   methods: {
+    resetFields() {
+      this.fetchNaver()
+    },
     async fetchNaver() {
-      console.log(this.naverId)
       try {
         const naver = await this.$axios.get('/navers/' + this.naverId)
         this.naver.name = naver.data.name
@@ -122,6 +179,14 @@ export default {
         this.saveNaverSnackbar = true
       } catch (error) {
         console.log(error)
+      }
+    },
+    validate() {
+      this.valid = this.$refs.form.validate()
+      if (this.valid) {
+        this.editNaver()
+      } else {
+        this.failSnackbar = true
       }
     },
   },

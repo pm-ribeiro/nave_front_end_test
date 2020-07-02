@@ -1,9 +1,5 @@
 <template>
   <v-col cols="12" class="pa-0 px-8">
-    >> {{ navers.length }}
-    <br />
-
-    >> {{ navers }}
     <v-row
       no-gutters
       align="center"
@@ -29,11 +25,7 @@
             <v-img
               id="activator-button"
               slot="activator-button"
-              :src="
-                naver.url == null
-                  ? 'https://picsum.photos/510/300?random'
-                  : naver.url
-              "
+              :src="naver.url == 'default_avatar' ? getImage() : naver.url"
               alt="Profile picture"
               height="285"
             ></v-img>
@@ -43,7 +35,9 @@
               @naverDeleted="deltedSnackbar = true"
             ></NaverDialog>
           </DefaultDialog>
-          <h4 class="font-weight-bold mt-2">{{ naver.name }}</h4>
+          <h4 class="font-weight-bold text-capitalize mt-2">
+            {{ naver.name }}
+          </h4>
 
           <span>{{ naver.job_role }}</span> <br />
           <v-row no-gutters align="center" justify="start" class="mt-2">
@@ -72,12 +66,12 @@
       </v-col>
     </v-row>
 
-    <v-snackbar v-model="deltedSnackbar" multi-line outlined color="success">
+    <v-snackbar v-model="deltedSnackbar" multi-line color="success">
       Naver excluído com sucesso!
 
       <template v-slot:action="{ attrs }">
         <v-btn
-          color="success"
+          color="white"
           text
           v-bind="attrs"
           @click="deltedSnackbar = false"
@@ -109,6 +103,9 @@ export default {
     this.fetchNavers()
   },
   methods: {
+    getImage() {
+      return require('@/assets/images/default_avatar.png')
+    },
     async fetchNavers() {
       try {
         const navers = await this.$axios.get('/navers')

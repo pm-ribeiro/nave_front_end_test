@@ -16,6 +16,11 @@ export default function (_, inject) {
     date() {
       return (date) => date === '' || !!parseDate(date) || 'Data inválida'
     },
+    minFieldLength(fieldText, fieldLength) {
+      return (fieldText) =>
+        fieldText.length >= fieldLength ||
+        `O campo deve ter no mínimo ${fieldLength} caracteres`
+    },
     required(field) {
       return (f) =>
         (f != null && Object.values(f).length > 0) ||

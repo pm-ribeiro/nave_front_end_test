@@ -4,7 +4,7 @@
       <v-col cols="12" xl="6" lg="6" class="pa-0">
         <v-img
           slot="activator-button"
-          :src="naver.url"
+          :src="naver.url == 'default_avatar' ? getImage() : naver.url"
           alt="Profile picture"
           height="560"
         ></v-img>
@@ -22,15 +22,15 @@
             <v-icon>mdi-close</v-icon>
           </v-btn>
         </v-row>
-        <h2>
+        <h2 class="text-capitalize">
           {{ naver.name }}
         </h2>
         {{ naver.job_role }}
 
         <h4 class="mt-6">
-          Data de nascimento
+          Idade
         </h4>
-        {{ $representers.ddmmyyyy(naver.birthdate) }}
+        {{ $representers.age(naver.birthdate) }} anos
 
         <h4 class="mt-6">
           Data de admissão
@@ -79,19 +79,15 @@ export default {
     },
   },
   methods: {
+    getImage() {
+      return require('@/assets/images/default_avatar.png')
+    },
     confirmDeletion() {
       this.$emit('naverDeleted')
     },
     editNaver(naverId) {
       this.$router.push('/naver/' + naverId)
     },
-    // ddmmyyyy(d) {
-    //   const date = new Date(d)
-    //   return `${('0' + date.getDate()).slice(-2)}/${(
-    //     '0' +
-    //     (date.getMonth() + 1)
-    //   ).slice(-2)}/${date.getFullYear()}`
-    // },
   },
 }
 </script>
