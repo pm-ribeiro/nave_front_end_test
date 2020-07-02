@@ -22,9 +22,9 @@
           </v-btn>
         </v-row>
         <h2>
-          Nome
+          {{ naverData.name }}
         </h2>
-        {{ naverData.name }}
+        {{ naverData.job_role }}
 
         <h4 class="mt-6">
           Idade
