@@ -17,7 +17,7 @@
         depressed
         width="176"
         class="ml-6"
-        @click="confirmDelete()"
+        @click="deteleNaver()"
       >
         excluir
       </v-btn>
@@ -34,9 +34,14 @@ export default {
     },
   },
   methods: {
-    confirmDelete() {
-      this.$dialog.close()
-      this.$emit('naverDeleted')
+    async deteleNaver(naverId) {
+      try {
+        await this.$axios.delete('/navers/' + this.naverData.id)
+        this.$dialog.close()
+        this.$emit('naverDeleted')
+      } catch (error) {
+        console.log(error)
+      }
     },
   },
 }

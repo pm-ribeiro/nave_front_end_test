@@ -3,7 +3,7 @@
     <v-col cols="12" xl="8" lg="8" class="pa-0 px-8 pt-10">
       <v-row no-gutters align="center" justify="start">
         <v-btn color="primary" text x-large to="/">
-          <v-icon left large>mdi-chevron-left</v-icon> Adicionar Naver
+          <v-icon left large>mdi-chevron-left</v-icon> Editar Naver
         </v-btn>
       </v-row>
       <v-row no-gutters align="center" justify="center" class="my-8">
@@ -49,20 +49,14 @@
         </v-col>
       </v-row>
       <v-row no-gutters align="center" justify="end">
-        <v-btn
-          color="primary"
-          tile
-          depressed
-          width="176"
-          @click="createNaver()"
-        >
+        <v-btn color="primary" tile depressed width="176" @click="editNaver()">
           Salvar
         </v-btn>
       </v-row>
     </v-col>
-    {{ naver }}
+
     <v-snackbar v-model="saveNaverSnackbar" multi-line outlined color="success">
-      Naver criado com sucesso!
+      Naver atualizado com sucesso!
 
       <template v-slot:action="{ attrs }">
         <v-btn
@@ -83,21 +77,38 @@ export default {
   data() {
     return {
       saveNaverSnackbar: false,
+      naverId: this.$route.params.id,
       naver: {
-        name: 'teste',
-        jobRole: 'teste',
-        birthdate: '19/08/1992',
-        admissionDate: '19/08/2018',
-        project: 'projeto teste',
-        avatarUrl: 'https://picsum.photos/510/300?random',
+        name: '',
+        jobRole: '',
+        birthdate: '',
+        admissionDate: '',
+        project: '',
+        avatarUrl: '',
       },
     }
   },
+  beforeMount() {
+    this.fetchNaver()
+  },
   methods: {
-    async createNaver() {
-      console.log(this.naver)
+    async fetchNaver() {
+      console.log(this.naverId)
       try {
-        await this.$axios.post('/navers', {
+        const naver = await this.$axios.get('/navers/' + this.naverId)
+        this.naver.name = naver.data.name
+        this.naver.jobRole = naver.data.job_role
+        this.naver.birthdate = naver.data.birthdate
+        this.naver.admissionDate = naver.data.admission_date
+        this.naver.project = naver.data.project
+        this.naver.avatarUrl = naver.data.url
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    async editNaver() {
+      try {
+        await this.$axios.put('/navers/' + this.naverId, {
           job_role: this.naver.jobRole,
           admission_date: this.naver.admissionDate,
           birthdate: this.naver.birthdate,
@@ -105,6 +116,7 @@ export default {
           name: this.naver.name,
           url: this.naver.avatarUrl,
         })
+
         this.saveNaverSnackbar = true
       } catch (error) {
         console.log(error)

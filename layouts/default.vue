@@ -1,11 +1,14 @@
 <template>
   <v-app>
     <v-app-bar fixed flat app>
-      <nuxt-link to="/home">
+      <nuxt-link to="/">
         <img src="@/assets/images/nave_logo.svg" alt="Nave" height="36" />
       </nuxt-link>
       <v-spacer></v-spacer>
-      <v-btn text color="primary" to="/">sair</v-btn>
+
+      <v-btn v-if="$auth.loggedIn" text color="primary" @click="$auth.logout()">
+        sair
+      </v-btn>
     </v-app-bar>
     <v-main>
       <v-container fluid>
@@ -44,6 +47,7 @@ export default {
       title: 'Vuetify.js',
     }
   },
+  methods: {},
 }
 </script>
 
