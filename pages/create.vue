@@ -99,7 +99,7 @@
         v-model="saveNaverSnackbar"
         multi-line
         color="success"
-        :timeout="1700"
+        :timeout="2000"
       >
         Naver criado com sucesso!
 
