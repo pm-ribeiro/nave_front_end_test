@@ -2,7 +2,12 @@
   <v-app>
     <v-app-bar fixed flat app>
       <nuxt-link to="/">
-        <img src="@/assets/images/nave_logo.svg" alt="Nave" height="36" />
+        <v-img
+          :src="$representers.getAssetsImage('nave_logo.svg')"
+          alt="Nave"
+          width="140"
+          contain
+        ></v-img>
       </nuxt-link>
       <v-spacer></v-spacer>
 
