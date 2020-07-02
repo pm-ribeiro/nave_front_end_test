@@ -66,6 +66,7 @@
               :rules="[
                 $validations.required(),
                 $validations.minFieldLength(naver.name, 5),
+                $validations.validURL(naver.avatarUrl),
               ]"
             >
               <template v-slot:append>
