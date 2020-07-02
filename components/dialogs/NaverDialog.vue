@@ -4,11 +4,12 @@
       <v-col cols="12" xl="6" lg="6" class="pa-0">
         <v-img
           slot="activator-button"
-          :src="naverData.avatarUrl"
+          :src="naver.url"
           alt="Profile picture"
           height="560"
         ></v-img>
       </v-col>
+
       <v-col
         cols="12"
         xl="6"
@@ -22,24 +23,24 @@
           </v-btn>
         </v-row>
         <h2>
-          {{ naverData.name }}
+          {{ naver.name }}
         </h2>
-        {{ naverData.job_role }}
+        {{ naver.job_role }}
 
         <h4 class="mt-6">
-          Idade
+          Data de nascimento
         </h4>
-        {{ naverData.birthdate }}
+        {{ $representers.ddmmyyyy(naver.birthdate) }}
 
         <h4 class="mt-6">
-          Tempo de empresa
+          Data de admissão
         </h4>
-        {{ naverData.admission_date }}
+        {{ $representers.ddmmyyyy(naver.admission_date) }}
 
         <h4 class="mt-6">
           Projetos que participou
         </h4>
-        {{ naverData.project }}
+        {{ naver.project }}
 
         <!-- card actions -->
         <v-row no-gutters align="center" justify="start" class="mt-12">
@@ -56,11 +57,11 @@
 
             <DeleteNaverDialog
               slot="content"
-              :naver-data="naver"
+              :naver="naver"
               @naverDeleted="confirmDeletion()"
             ></DeleteNaverDialog>
           </DefaultDialog>
-          <v-btn icon small color="primary" @click="editNaver(naverData.id)">
+          <v-btn icon small color="primary" @click="editNaver(naver.id)">
             <v-icon>mdi-pencil</v-icon>
           </v-btn>
         </v-row>
@@ -72,7 +73,7 @@
 <script>
 export default {
   props: {
-    naverData: {
+    naver: {
       type: Object,
       default: () => {},
     },
@@ -84,8 +85,13 @@ export default {
     editNaver(naverId) {
       this.$router.push('/naver/' + naverId)
     },
+    // ddmmyyyy(d) {
+    //   const date = new Date(d)
+    //   return `${('0' + date.getDate()).slice(-2)}/${(
+    //     '0' +
+    //     (date.getMonth() + 1)
+    //   ).slice(-2)}/${date.getFullYear()}`
+    // },
   },
 }
 </script>
-
-<style lang="scss"></style>

@@ -5,15 +5,7 @@
         <slot name="activator-button"></slot>
       </div>
     </template>
-
-    <!-- <div class="d-flex align-center justify-end py-4 px-6">
-        <v-btn icon small @click="$dialog.close()">
-          <v-icon>mdi-close</v-icon>
-        </v-btn>
-      </div> -->
-    <!-- <div> -->
     <slot :dialog="dialog" name="content"></slot>
-    <!-- </div> -->
   </v-dialog>
 </template>
 
@@ -52,5 +44,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss"></style>

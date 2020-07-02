@@ -28,15 +28,15 @@
 <script>
 export default {
   props: {
-    naverData: {
+    naver: {
       type: Object,
       default: () => {},
     },
   },
   methods: {
-    async deteleNaver(naverId) {
+    async deteleNaver() {
       try {
-        await this.$axios.delete('/navers/' + this.naverData.id)
+        await this.$axios.delete('/navers/' + this.naver.id)
         this.$dialog.close()
         this.$emit('naverDeleted')
       } catch (error) {
@@ -46,5 +46,3 @@ export default {
   },
 }
 </script>
-
-<style lang="scss"></style>

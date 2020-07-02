@@ -37,7 +37,11 @@ export default {
    ** Plugins to load before mounting the App
    ** https://nuxtjs.org/guide/plugins
    */
-  plugins: ['@/plugins/dialog'],
+  plugins: [
+    '@/plugins/dialog',
+    '@/plugins/representers',
+    '@/plugins/validations',
+  ],
   /*
    ** Auto import components
    ** See https://nuxtjs.org/api/configuration-components

@@ -39,7 +39,7 @@
             ></v-img>
             <NaverDialog
               slot="content"
-              :naver-data="naver"
+              :naver="naver"
               @naverDeleted="deltedSnackbar = true"
             ></NaverDialog>
           </DefaultDialog>
@@ -60,7 +60,7 @@
 
               <DeleteNaverDialog
                 slot="content"
-                :naver-data="naver"
+                :naver="naver"
                 @naverDeleted="deltedSnackbar = true"
               ></DeleteNaverDialog>
             </DefaultDialog>

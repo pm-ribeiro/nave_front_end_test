@@ -98,8 +98,10 @@ export default {
         const naver = await this.$axios.get('/navers/' + this.naverId)
         this.naver.name = naver.data.name
         this.naver.jobRole = naver.data.job_role
-        this.naver.birthdate = naver.data.birthdate
-        this.naver.admissionDate = naver.data.admission_date
+        this.naver.birthdate = this.$representers.ddmmyyyy(naver.data.birthdate)
+        this.naver.admissionDate = this.$representers.ddmmyyyy(
+          naver.data.admission_date
+        )
         this.naver.project = naver.data.project
         this.naver.avatarUrl = naver.data.url
       } catch (error) {
