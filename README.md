@@ -22,7 +22,7 @@ Desenvolvimento da aplicação proposta em: https://github.com/naveteam/front-en
 Uma demonstração da aplicação pode ser acessada através do [link](https://drive.google.com/file/d/1KL13WS_4qERJQXnfHdXnG7Ft8ojxfUW3/view).
 
 ## Créditos
-As imagens para avatar padrão e erro utilizadas foram retiradas de [Strange Planet](https://www.instagram.com/nathanwpylestrangeplanet/)
+As imagens utilizadas para avatar padrão e página de erro foram retiradas de [Strange Planet](https://www.instagram.com/nathanwpylestrangeplanet/)
 
 ** Nenhum Blue Being foi ferido no desenvolvimento dessa aplicação.
 
