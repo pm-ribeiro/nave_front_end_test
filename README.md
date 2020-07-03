@@ -2,7 +2,7 @@
 
 Desenvolvimento da aplicação proposta em: https://github.com/naveteam/front-end-challenge
 
-## Features propostas e desenvolvidas
+## Funcionalidades propostas e desenvolvidas
 . Sistema de login
 
 . Listagem de membros
@@ -11,14 +11,14 @@ Desenvolvimento da aplicação proposta em: https://github.com/naveteam/front-en
 
 . Comunicação com API
 
-## Features extras
+### Funcionalidades extras
 . Avatar padrão para membros que não desejam escolher uma foto
 
 . Página de erro personalizada
 
 . Reponsividade para dispositivos móveis
 
-## Demonstração da aplicação
+### Demonstração da aplicação
 Uma demonstração da aplicação pode ser acessada através do [link](https://drive.google.com/file/d/1KL13WS_4qERJQXnfHdXnG7Ft8ojxfUW3/view).
 
 ## Créditos
