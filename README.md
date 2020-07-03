@@ -22,7 +22,7 @@ Desenvolvimento da aplicação proposta em: https://github.com/naveteam/front-en
 ### Demonstração da aplicação
 Uma demonstração da aplicação pode ser acessada através do [link](https://drive.google.com/file/d/1KL13WS_4qERJQXnfHdXnG7Ft8ojxfUW3/view).
 
-## Tecnologias utilizadas
+### Tecnologias utilizadas
 Para o desenvolvimento da aplicação foram utilizados [Nuxtjs](https://nuxtjs.org/), [Vuetify](https://vuetifyjs.com/en/) e [Axios](https://axios.nuxtjs.org/).
 
 ## Créditos
