@@ -7,7 +7,7 @@
             <v-icon left large>mdi-chevron-left</v-icon> Editar Naver
           </v-btn>
         </v-row>
-        <v-row no-gutters align="center" justify="center" class="my-8">
+        <v-row no-gutters align="center" justify="center" class="mt-8">
           <v-col cols="12" xl="6" lg="6" class="pr-lg-4">
             <v-text-field
               v-model="naver.name"
@@ -88,8 +88,18 @@
             </v-text-field>
           </v-col>
         </v-row>
-        <v-row no-gutters align="center" justify="end">
-          <v-btn color="primary" tile outlined @click="resetFields()">
+        <v-row
+          no-gutters
+          align="center"
+          :justify="$vuetify.breakpoint.smAndDown ? 'center' : 'end'"
+        >
+          <v-btn
+            color="primary"
+            class="mx-4 mt-6"
+            tile
+            outlined
+            @click="resetFields()"
+          >
             Descartar alterações
           </v-btn>
           <v-btn
@@ -97,7 +107,7 @@
             tile
             depressed
             width="176"
-            class="ml-4"
+            class="mt-6"
             @click="validate()"
           >
             Salvar
