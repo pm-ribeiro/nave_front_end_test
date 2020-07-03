@@ -2,6 +2,7 @@
 
 Desenvolvimento da aplicação proposta em: https://github.com/naveteam/front-end-challenge
 
+
 ## Funcionalidades propostas e desenvolvidas
 . Sistema de login
 
@@ -11,7 +12,7 @@ Desenvolvimento da aplicação proposta em: https://github.com/naveteam/front-en
 
 . Comunicação com API
 
-### Funcionalidades extras
+### Extras
 . Avatar padrão para membros que não desejam escolher uma foto
 
 . Página de erro personalizada
@@ -20,6 +21,9 @@ Desenvolvimento da aplicação proposta em: https://github.com/naveteam/front-en
 
 ### Demonstração da aplicação
 Uma demonstração da aplicação pode ser acessada através do [link](https://drive.google.com/file/d/1KL13WS_4qERJQXnfHdXnG7Ft8ojxfUW3/view).
+
+## Tecnologias utilizadas
+Para o desenvolvimento da aplicação foram utilizados [Nuxtjs](https://nuxtjs.org/) e [Vuetify](https://vuetifyjs.com/en/).
 
 ## Créditos
 As imagens utilizadas para avatar padrão e página de erro foram retiradas de [Strange Planet](https://www.instagram.com/nathanwpylestrangeplanet/)
