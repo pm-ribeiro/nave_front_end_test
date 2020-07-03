@@ -23,7 +23,7 @@ Desenvolvimento da aplicação proposta em: https://github.com/naveteam/front-en
 Uma demonstração da aplicação pode ser acessada através do [link](https://drive.google.com/file/d/1KL13WS_4qERJQXnfHdXnG7Ft8ojxfUW3/view).
 
 ## Tecnologias utilizadas
-Para o desenvolvimento da aplicação foram utilizados [Nuxtjs](https://nuxtjs.org/) e [Vuetify](https://vuetifyjs.com/en/).
+Para o desenvolvimento da aplicação foram utilizados [Nuxtjs](https://nuxtjs.org/), [Vuetify](https://vuetifyjs.com/en/) e [Axios](https://axios.nuxtjs.org/).
 
 ## Créditos
 As imagens utilizadas para avatar padrão e página de erro foram retiradas de [Strange Planet](https://www.instagram.com/nathanwpylestrangeplanet/)
