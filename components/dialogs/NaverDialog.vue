@@ -1,7 +1,13 @@
 <template>
-  <v-card tile height="560" class="pa-0">
+  <v-card tile max-height="560" class="pa-0">
     <v-row no-gutters align="start" justify="space-between">
-      <v-col cols="12" xl="6" lg="6" class="pa-0">
+      <v-col
+        v-if="isHydrated && $vuetify.breakpoint.mdAndUp"
+        cols="12"
+        xl="6"
+        lg="6"
+        class="pa-0"
+      >
         <v-img
           slot="activator-button"
           :src="
@@ -14,13 +20,7 @@
         ></v-img>
       </v-col>
 
-      <v-col
-        cols="12"
-        xl="6"
-        lg="6"
-        class="pa-3 pl-6"
-        style="background-color: white;"
-      >
+      <v-col cols="12" xl="6" lg="6" class="pa-3 pl-6">
         <v-row no-gutters align="center" justify="end">
           <v-btn icon small @click="$dialog.close()">
             <v-icon>mdi-close</v-icon>
@@ -47,7 +47,7 @@
         {{ naver.project }}
 
         <!-- card actions -->
-        <v-row no-gutters align="center" justify="start" class="mt-12">
+        <v-row no-gutters align="center" justify="start" class="mt-12 mb-6">
           <DefaultDialog :dialog-width="'500'">
             <v-btn
               slot="activator-button"
@@ -81,6 +81,14 @@ export default {
       type: Object,
       default: () => {},
     },
+  },
+  data() {
+    return {
+      isHydrated: false,
+    }
+  },
+  mounted() {
+    this.isHydrated = true
   },
   methods: {
     confirmDeletion() {

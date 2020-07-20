@@ -20,7 +20,12 @@
         lg="3"
         class="my-3 px-4"
       >
-        <v-sheet tile height="420" class="py-3">
+        <v-sheet
+          tile
+          height="420"
+          class="py-3"
+          :color="$vuetify.theme.dark ? '#121212' : '#FFFFFF'"
+        >
           <DefaultDialog :dialog-width="'1006'">
             <v-img
               id="activator-button"
