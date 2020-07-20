@@ -4,20 +4,22 @@ Desenvolvimento da aplicação proposta em: https://github.com/naveteam/front-en
 
 
 ## Funcionalidades propostas e desenvolvidas
-. Sistema de login
+* Sistema de login
 
-. Listagem de membros
+* Listagem de membros
 
-. CRUD de membros
+* CRUD de membros
 
-. Comunicação com API
+* Comunicação com API
 
 ### Extras
-. Avatar padrão para membros que não desejam escolher uma foto
+* Avatar padrão para membros que não desejam escolher uma foto
 
-. Página de erro personalizada
+* Dark Mode
 
-. Reponsividade para dispositivos móveis
+* Página de erro personalizada
+
+* Reponsividade para dispositivos móveis
 
 ### Demonstração da aplicação
 Uma demonstração da aplicação pode ser acessada através do [link](https://drive.google.com/file/d/1KL13WS_4qERJQXnfHdXnG7Ft8ojxfUW3/view).
