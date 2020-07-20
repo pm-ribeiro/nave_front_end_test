@@ -19,7 +19,7 @@
     </div>
     <v-img
       v-if="isHydrated && $vuetify.breakpoint.mdAndUp"
-      :src="$representers.getAssetsImage('error_image_2.png')"
+      :src="$representers.getAssetsImage('error_image.png')"
       alt="Profile picture"
       class="alien"
       contain
