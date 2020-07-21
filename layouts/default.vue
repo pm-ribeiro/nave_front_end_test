@@ -42,29 +42,6 @@
 
 <script>
 export default {
-  data() {
-    return {
-      clipped: false,
-      drawer: false,
-      fixed: false,
-      items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/',
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire',
-        },
-      ],
-      miniVariant: false,
-      right: true,
-      rightDrawer: false,
-      title: 'Vuetify.js',
-    }
-  },
   computed: {
     naveLogo() {
       return this.$vuetify.theme.dark ? 'nave_logo_white.svg' : 'nave_logo.svg'
@@ -79,6 +56,6 @@ export default {
 }
 
 .fill-height {
-  height: calc(100vh - 124px);
+  min-height: calc(100vh - 124px);
 }
 </style>
