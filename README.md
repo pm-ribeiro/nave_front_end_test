@@ -15,7 +15,7 @@ Desenvolvimento da aplicação proposta em: https://github.com/naveteam/front-en
 ### Extras
 * Avatar padrão para membros que não desejam escolher uma foto
 
-* Dark Mode
+* Modo noturno
 
 * Página de erro personalizada
 
