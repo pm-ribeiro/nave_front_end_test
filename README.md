@@ -1,4 +1,4 @@
-# Front-end Challenge
+# Nave Front-end Challenge
 
 Desenvolvimento da aplicação proposta em: https://github.com/naveteam/front-end-challenge
 
